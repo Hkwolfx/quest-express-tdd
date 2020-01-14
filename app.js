@@ -10,6 +10,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', (_, res) => res.json({ message: 'Hello ' + connection.threadId }));
+app.get('/bookmarks/1', (_, res) => res.json({ message: 'Hello Wilder ' + connection.threadId + ' . Voilà, ton bookmark n°1' })); 
+app.get('/bookmarks/2', (_, res) => res.status(404).json({ error: 'Bookmark not found' })); 
 
 app.post('/bookmarks', (req, res) => {
     const { url, title } = req.body;
