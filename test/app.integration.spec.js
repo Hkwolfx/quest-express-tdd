@@ -62,13 +62,13 @@ describe('GET /bookmarks/:id', () => {
     ));
   
     // Write your tests HERE!
-    it('GET / sends "Hello World" as json', (done) => {
+    it('GET / sends "Hello " + connection.threadId as json', (done) => {
             request(app)
               .get('/')
               .expect(200)
               .expect('Content-Type', /json/)
               .then(response => {
-                const expected = { message: 'Hello World!'};
+                const expected = { message: 'Hello ' + connection.threadId };
                 expect(response.body).toEqual(expected);
                 done();
               });
